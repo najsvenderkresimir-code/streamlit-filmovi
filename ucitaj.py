@@ -10,7 +10,7 @@ def ucitaj_podatke(sheet_url, sheet_name):
     ]
 
     creds_info = st.secrets["gcp_service_account"]
-    creds = Credentials.from_service_account_info(creds_info, scope=scope)
+    creds = Credentials.from_service_account_info(creds_info, scopes=scope)
     client = gspread.authorize(creds)
     sheet = client.open_by_url(sheet_url)
     worksheet = sheet.worksheet(sheet_name)
